@@ -13,7 +13,10 @@ dotenv.config({
 });
 connectDB();
 const app = express();
-
+// Body Parser
+app.use(express.json());
+// app.use(express.urlencoded());
+// app.use(express.json({ strict: false }));
 // app.use(logger);
 // dev loggin
 if (process.env.NODE_ENV === "development") {
