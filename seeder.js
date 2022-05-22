@@ -31,7 +31,7 @@ mongoose
       try {
         console.log('imported data '.yellow);
         await Bootcamp.create(bootcamps);
-        await Course.create(courses);
+        // await Course.create(courses);
         console.log(`Data imported...`.green.inverse);
         process.exit();
       } catch (error) {
