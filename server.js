@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-
+const cookieParser = require('cookie-parser');
 const logger = require('./middlieware/logger');
 const morgan = require('morgan');
 // Routers
@@ -19,6 +19,9 @@ dotenv.config({
 });
 connectDB();
 const app = express();
+// Cookie Parser
+app.use(cookieParser());
+
 // Body Parser
 app.use(express.json());
 // app.use(express.urlencoded());
