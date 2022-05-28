@@ -1,4 +1,4 @@
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require('../utils/errorResponse');
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   console.log(err);
@@ -6,8 +6,8 @@ const errorHandler = (err, req, res, next) => {
 
   error.message = err.message;
 
-  if (err.name === "CastError") {
-    const message = `BootCamp not found id of: ${err.value}`;
+  if (err.name === 'CastError') {
+    const message = `Resource not found`;
     error = new ErrorResponse(message, 404);
   }
   if (err.code === 11000) {
@@ -21,7 +21,7 @@ const errorHandler = (err, req, res, next) => {
   }
   res
     .status(error.statusCode || 500)
-    .json({ success: false, error: error.message || "Server Error" });
+    .json({ success: false, error: error.message || 'Server Error' });
 };
 
 module.exports = errorHandler;
